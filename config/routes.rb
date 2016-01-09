@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :posts do
+    collection do
+      get :random
+    end
     resources :comments
   end
 

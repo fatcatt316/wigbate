@@ -8,6 +8,10 @@ class PostsController < ApplicationController
   def show
   end
 
+  def random
+    redirect_to Post.random(exclude_id: params[:exclude_id])
+  end
+
   def new
     @post = Post.new
   end
