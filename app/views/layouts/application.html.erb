@@ -8,7 +8,22 @@
 </head>
 <body>
 
+<% if notice %>
+  <p id="notice" class="notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p id="alert" class="alert"><%= alert %></p>
+<% end %>
+
 <%= yield %>
+
+<div>
+  <% if admin_signed_in? %>
+    <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Login', new_admin_session_path %>
+  <% end %>
+</div>
 
 </body>
 </html>

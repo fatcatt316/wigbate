@@ -10,9 +10,13 @@ gem 'jquery-rails', '~> 4.0.5' # Use jquery as the JavaScript library
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
+# Comic stuff
 gem 'carrierwave', '~> 0.10.0'
 gem 'fog', '~> 1.37.0'
 gem 'mini_magick', '~> 4.3.6'
+
+# Other mess
+gem 'devise', '~> 3.5.3'
 
 group :development, :test do
   gem 'byebug'
