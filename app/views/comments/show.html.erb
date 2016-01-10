@@ -13,5 +13,7 @@
   <%= @comment.author %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% if admin_signed_in? %>
+  <%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% end %>
 <%= link_to 'Back', comments_path %>
