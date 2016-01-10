@@ -4,4 +4,6 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true
 
   belongs_to :post
+
+  scope :saved, -> { where.not(created_at: nil) }
 end

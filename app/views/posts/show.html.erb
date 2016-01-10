@@ -1,25 +1,28 @@
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @post.title %>
-</p>
+</h1>
 
 <p>
   <%= image_tag(@post.comic) %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+
+<% if @post.description.present? %>
+  <p>
+    <%= @post.description %>
+  </p>
+<% end %>
 
 <p>
-  Comments:
+  <h2>Comments:</h2>
   <% if @post.comments.empty? %>
-    Ain't no comments yet. <%= link_to 'Leave a comment!', new_post_comment_url(@post) %>
-  <% else %>
-    <% @post.comments.each do |comment| %>
-      <%= render partial: 'comments/show', locals: { comment: comment } %>
-    <% end %>
+    Ain't no comments yet.
+  <% end %>
+
+  <%= render 'comments/form' %>
+
+  <% @post.comments.saved.each do |comment| %>
+    <%= render partial: 'comments/show', locals: { comment: comment } %>
   <% end %>
 </p>
 

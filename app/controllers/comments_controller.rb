@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post, notice: '¡Thanks for your comment!'
     else
-      render :new
+      render 'posts/show'
     end
   end
 

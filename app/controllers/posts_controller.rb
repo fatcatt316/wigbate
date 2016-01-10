@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = @post.comments.new(params[:comment])
   end
 
   def random
