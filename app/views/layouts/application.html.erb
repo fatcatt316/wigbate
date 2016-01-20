@@ -12,6 +12,11 @@
       <%= link_to 'Wigbate', root_path %>
     </div>
 
+    <div>
+      <%= mail_to 'wigbate@gmail.com', 'Email Wigbate' %>
+      <%= link_to 'Twitter', 'http://twitter.com/wigbatedotcom', target: '_blank' %>
+    </div>
+
     <% if notice %>
       <p id='notice' class='notice'><%= notice %></p>
     <% end %>
