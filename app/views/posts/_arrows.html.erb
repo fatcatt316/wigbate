@@ -1,0 +1,15 @@
+<div>
+  <% if post.previous %>
+    <%= link_to 'Previous', post.previous %>
+  <% else %>
+    Previous
+  <% end %>
+
+  <%= link_to 'Random', random_posts_path(exclude_id: post.id) %>
+
+  <% if post.next %>
+    <%= link_to 'Next', post.next %>
+  <% else %>
+    Next
+  <% end %>
+</div>

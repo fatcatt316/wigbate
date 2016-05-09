@@ -13,6 +13,8 @@
   </p>
 <% end %>
 
+<%= render partial: 'arrows', locals: { post: @post } %>
+
 <p>
   <h2>Comments:</h2>
   <% if @post.comments.empty? %>
@@ -25,11 +27,6 @@
     <%= render partial: 'comments/show', locals: { comment: comment } %>
   <% end %>
 </p>
-
-<p>
-  <%= link_to 'Random Wigbate', random_posts_path(exclude_id: @post.id) %>
-</p>
-
 
 <% if admin_signed_in? %>
   <%= link_to 'Edit', edit_post_path(@post) %> |
