@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 
-gem 'sqlite3'
+gem 'pg'
 
 # Asset stuff
 gem 'coffee-rails', '~> 4.1.0' # Use CoffeeScript for .coffee assets and views
