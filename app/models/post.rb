@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
   end
 
   def previous
-    self.class.where('id < ?', id).first
+    self.class.order(id: :desc).where('id < ?', id).first
   end
 
   def next
