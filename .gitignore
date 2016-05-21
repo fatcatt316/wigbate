@@ -10,6 +10,8 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
+# Debugger files
+.byebug_history
 
 # Ignore all logfiles and tempfiles.
 /log/*
