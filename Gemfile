@@ -4,7 +4,7 @@ ruby '2.3.0'
 
 gem 'rails', '4.2.5'
 
-gem 'pg'
+gem 'pg', '~> 0.18.4'
 
 # Asset stuff
 gem 'coffee-rails', '~> 4.1.0' # Use CoffeeScript for .coffee assets and views
@@ -19,6 +19,9 @@ gem 'mini_magick', '~> 4.3.6'
 
 # Other mess
 gem 'devise', '~> 3.5.3'
+
+# To migrate over current comics
+gem 'watir', '~> 5.0.0', require: false
 
 group :development, :test do
   gem 'byebug'
