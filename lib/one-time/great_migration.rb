@@ -1,4 +1,4 @@
-require 'watir-webdriver'
+require 'watir'
 
 module GreatMigration
   extend self
