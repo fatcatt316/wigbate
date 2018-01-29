@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   end
 
   def random
-    redirect_to Post.random(exclude_id: params[:exclude_id])
+    random_post = Post.random(exclude_id: params[:exclude_id])
+    redirect_to random_post.presence || root_url
   end
 
   def new
@@ -23,7 +24,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
     else
