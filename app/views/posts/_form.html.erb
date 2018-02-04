@@ -16,14 +16,12 @@
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= f.label :comic %><br>
-    <% if f.object.persisted? %>
-      <%= image_tag(@post.comic_url(:thumb)) %><br>
-      Or, change it to:
-    <% end %>
-    <%= f.file_field :comic %>
-  </div>
+  <% if f.object.new_record? %>
+    <div class="field">
+      <%= f.label :comic %><br>
+      <%= f.file_field :comics, multiple: true %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :description %><br>

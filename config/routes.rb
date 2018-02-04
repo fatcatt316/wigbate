@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :random
     end
     resources :comments
+    resources :comics, only: [:create, :destroy]
   end
 
   root 'posts#index'

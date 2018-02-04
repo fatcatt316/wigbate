@@ -2,4 +2,20 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @post %>
+<% @post.comics.each_with_index do |comic, i| %>
+  <div>
+    <%= image_tag(comic.url) %>
+    <% if admin_signed_in? %>
+      <%= link_to 'Delete this image', post_comic_path(@post, i), method: :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
+    <% end %>
+  </div>
+<% end %>
+
+<h2>Add mo' images</h2>
+<%= form_for @post, url: post_comics_path(@post), method: :post do |f| %>
+	<%= f.file_field :comics, multiple: true %>
+	<%= f.submit "Add a pic" %>
+<% end %>
+
+<%= link_to 'Go see this Post', @post %> | 
+<%= link_to 'Delete this whole post', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

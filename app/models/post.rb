@@ -1,10 +1,11 @@
 class Post < ActiveRecord::Base
-  mount_uploader :comic, ComicUploader
+  mount_uploaders :comics, ComicUploader
 
   after_create :set_slug
+  after_destroy :remove_comics
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
-  validates :comic, presence: true
+  validates :comics, presence: true
   validates :slug, presence: true, uniqueness: { case_sensitive: false }, if: :persisted?
 
   has_many :comments, dependent: :destroy
@@ -25,12 +26,13 @@ class Post < ActiveRecord::Base
     self.class.where('id > ?', id).first
   end
 
-  private
+  private def set_slug
+    return if slug.present?
+    self.slug = "#{id}-#{title.parameterize}"
+    self.save!
+  end
 
-  def set_slug
-    if slug.blank?
-      self.slug = "#{id}-#{title.parameterize}"
-      self.save!
-    end
+  private def remove_comics
+    comics.each(&:remove!) # delete off of S3
   end
 end

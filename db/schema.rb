@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160116034145) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "comic"
+    t.text "comics", default: [], array: true
     t.string "slug"
   end
 

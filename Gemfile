@@ -20,7 +20,7 @@ gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
 # Comic stuff
-gem 'carrierwave', '~> 1.1.0'
+gem 'carrierwave', '~> 1.2.2'
 gem 'fog-aws', '~> 2.0.0'
 gem 'mini_magick', '~> 4.8.0'
 
