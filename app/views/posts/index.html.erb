@@ -6,7 +6,9 @@
       <th>Title</th>
       <th>Description</th>
       <th>Preview</th>
-      <th colspan=<%= admin_signed_in? ? '3' : '1' %>></th>
+      <% if admin_signed_in? %>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -15,11 +17,12 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.description %></td>
-        <td><%= image_tag(post.comics.first&.url(:thumb)) %></td>
-        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to image_tag(post.comics.first&.url(:thumb)), post %></td>
         <% if admin_signed_in? %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
         <% end %>
       </tr>
     <% end %>
