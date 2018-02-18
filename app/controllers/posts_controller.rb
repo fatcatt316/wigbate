@@ -47,10 +47,10 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.where('slug ILIKE ?', params[:id] + '%').first || Post.find(params[:id].to_i)
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, {comics: [] })
+    params.require(:post).permit(:title, :description, {comics: []})
   end
 end

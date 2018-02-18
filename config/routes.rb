@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'posts#index'
 
   devise_for :admins
 
@@ -10,7 +11,10 @@ Rails.application.routes.draw do
     resources :comics, only: [:create, :destroy]
   end
 
-  root 'posts#index'
+  # Lowest priority
+  # get '/:id', to: 'posts#show'
+  get '/:id', to: redirect('/posts/%{id}')
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
