@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.where('slug ILIKE ?', params[:id] + '%').first || Post.find(params[:id].to_i)
+    @post = Post.where(slug: params[:id] + '.html').first || Post.find(params[:id].to_i)
   end
 
   def post_params
