@@ -1,3 +1,5 @@
+# Helpful
+# http://bobintornado.github.io/rails/2015/12/29/Multiple-Images-Uploading-With-CarrierWave-and-PostgreSQL-Array.html
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/aws'                          # required
   config.fog_credentials = {
