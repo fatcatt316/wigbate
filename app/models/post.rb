@@ -4,9 +4,9 @@ class Post < ActiveRecord::Base
   after_create :set_slug
   after_destroy :remove_comics
 
-  validates :title, presence: true, uniqueness: { case_sensitive: false }
+  validates :title, presence: true
   validates :comics, presence: true
-  validates :slug, presence: true, uniqueness: { case_sensitive: false }, if: :persisted?
+  validates :slug, presence: true, uniqueness: { case_sensitive: false }
 
   has_many :comments, dependent: :destroy
 
