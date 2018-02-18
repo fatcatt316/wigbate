@@ -6,8 +6,6 @@ module GreatMigration
   START_URL = 'https://www.wigbate.com/1---joker.html'
   HEADER_IMAGE = '1427127701.png'
 
-  # TODO: Figure out multi-image posts (e.g., 'http://www.wigbate.com/458---462---pigs-1-7.html')
-
   def run(start_url: START_URL, limit: nil)
     original_logger_level = Rails.logger.level
     Rails.logger.level = :warn
@@ -22,7 +20,7 @@ module GreatMigration
       next_link = browser.span(text: 'NEXT').try(:parent)
       break unless next_link
       import_count += 1
-      next_link.click # Loads new browser page
+      next_link.click # Loads next page
     end
 
     puts 'Done!'
